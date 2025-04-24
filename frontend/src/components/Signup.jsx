@@ -15,7 +15,7 @@ function Signup() {
   const onSubmit = async (data) => {
     if(!data) console.error("Data not found for signup")
     try {
-        const res = await axios.post('http://localhost:8000/user/signup', data, {withCredentials: true})
+        const res = await axios.post('https://notetakingwebapp.onrender.com/user/signup', data, {withCredentials: true})
         console.log("Signup successfull: ", res.data)
         const result = dispatch(login(res.data))
         navigate('/')

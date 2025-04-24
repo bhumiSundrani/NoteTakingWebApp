@@ -20,7 +20,7 @@ function NotesForm() {
         
             async function getNotes() {
                 try {
-                    const response = await axios.get(`http://localhost:8000/notes/get-notes/${slug}`, {withCredentials: true})
+                    const response = await axios.get(`https://notetakingwebapp.onrender.com/notes/get-notes/${slug}`, {withCredentials: true})
                     setNotes(response.data.notes)
                 } catch (error) {
                     if(error.response){
@@ -93,7 +93,7 @@ function NotesForm() {
         if(notes){
             try {
                 const id = notes._id
-                const updatedNotes = await axios.patch(`http://localhost:8000/notes/edit-notes/${id}`, formdata, {withCredentials: true, headers: {"Content-Type": "multipart/form-data"}, onUploadProgress: (progressEvent) => {
+                const updatedNotes = await axios.patch(`https://notetakingwebapp.onrender.com/notes/edit-notes/${id}`, formdata, {withCredentials: true, headers: {"Content-Type": "multipart/form-data"}, onUploadProgress: (progressEvent) => {
                     const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
                     setUploadProgress(percentCompleted);
                 }})
@@ -112,7 +112,7 @@ function NotesForm() {
             }          
         }else{
             try {
-                const newNotes = await axios.post('http://localhost:8000/notes/create-notes', formdata, {withCredentials: true, headers: {"Content-Type": "multipart/form-data"}, 
+                const newNotes = await axios.post('https://notetakingwebapp.onrender.com/notes/create-notes', formdata, {withCredentials: true, headers: {"Content-Type": "multipart/form-data"}, 
                     onUploadProgress: (progressEvent) => {
                         const percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
                         setUploadProgress(percentCompleted);

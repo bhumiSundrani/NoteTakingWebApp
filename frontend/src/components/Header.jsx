@@ -16,7 +16,7 @@ function Header() {
 
   const handleLogout = async () => {
     try {
-      const res = await axios.post('http://localhost:8000/user/logout', {}, {withCredentials: true})
+      const res = await axios.post('https://notetakingwebapp.onrender.com/user/logout', {}, {withCredentials: true})
       dispatch(logout())
       navigate('/user/login')
       console.log("Logout successfull: ", res.data)

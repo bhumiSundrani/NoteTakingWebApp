@@ -15,7 +15,7 @@ function NotesPage() {
             if (slug) {               
                 try {
                     console.log(slug)
-                    const response = await axios.get(`http://localhost:8000/notes/get-notes/${slug}`, { withCredentials: true });
+                    const response = await axios.get(`https://notetakingwebapp.onrender.com/notes/get-notes/${slug}`, { withCredentials: true });
                     setNotes(response.data.notes); 
                 } catch (error) {
                     console.error("Error fetching notes:", error.response ? error.response.data.error : error.message);
@@ -31,7 +31,7 @@ function NotesPage() {
     // Handle Delete
     const handleDelete = async () => {
         try {
-            await axios.patch(`http://localhost:8000/notes/recently-deleted-notes/${slug}`, { withCredentials: true });
+            await axios.patch(`https://notetakingwebapp.onrender.com/notes/recently-deleted-notes/${slug}`, { withCredentials: true });
             alert('Note deleted successfully!');
             navigate('/'); // Redirect to homepage or notes list
         } catch (error) {

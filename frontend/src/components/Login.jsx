@@ -14,7 +14,7 @@ function Login() {
     const onSubmit = async (data) => {
         if(!data) console.error("Data not found for login")
         try {
-            const res = await axios.post('http://localhost:8000/user/login', data, {withCredentials: true})
+            const res = await axios.post('https://notetakingwebapp.onrender.com/user/login', data, {withCredentials: true})
             console.log("Login successfull: ", res.data)
             const result = dispatch(login(res.data))
             navigate('/')

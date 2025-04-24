@@ -15,7 +15,7 @@ function RecentlyDeletedPage() {
 
 
     const fetchNotes = () => {
-        axios.get('http://localhost:8000/notes/recently-deleted-notes', {withCredentials: true})
+        axios.get('https://notetakingwebapp.onrender.com/notes/recently-deleted-notes', {withCredentials: true})
         .then((response) => {
             if(response.data){
                 setAllNotes(response.data.notes)
@@ -50,7 +50,7 @@ function RecentlyDeletedPage() {
 
     const handleDelete = async (slug) => {
         try {
-            await axios.delete(`http://localhost:8000/notes/deleted-notes/${slug}`, { withCredentials: true });
+            await axios.delete(`https://notetakingwebapp.onrender.com/notes/deleted-notes/${slug}`, { withCredentials: true });
             fetchNotes()
         } catch (error) {
             if (error.response) {
@@ -63,7 +63,7 @@ function RecentlyDeletedPage() {
 
     const handleRestore = async (slug) => {
         try {
-            await axios.patch(`http://localhost:8000/notes/restore-notes/${slug}`, { withCredentials: true });
+            await axios.patch(`https://notetakingwebapp.onrender.com/notes/restore-notes/${slug}`, { withCredentials: true });
             fetchNotes()
         } catch (error) {
             if (error.response) {

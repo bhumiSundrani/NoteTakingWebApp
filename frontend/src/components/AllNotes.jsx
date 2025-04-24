@@ -12,7 +12,7 @@ function AllNotes() {
     const [loading, setLoading] = useState(true)
 
     const fetchNotes = () => {
-        axios.get('http://localhost:8000/notes/get-all-notes', {withCredentials: true})
+        axios.get('https://notetakingwebapp.onrender.com/notes/get-all-notes', {withCredentials: true})
         .then((response) => {
             if(response.data){
                 setAllNotes(response.data.notes)
@@ -46,7 +46,7 @@ function AllNotes() {
 
     const handleDelete = async (slug) => {
         try {
-            await axios.patch(`http://localhost:8000/notes/recently-deleted-notes/${slug}`,{}, { withCredentials: true });
+            await axios.patch(`https://notetakingwebapp.onrender.com/notes/recently-deleted-notes/${slug}`,{}, { withCredentials: true });
             setAllNotes(prev => prev.filter(note => note.id !== slug))
             fetchNotes()
         } catch (error) {
