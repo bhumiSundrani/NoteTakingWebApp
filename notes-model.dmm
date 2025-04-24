@@ -1,0 +1,378 @@
+{
+	"tables": {
+		"221ad34f-3e7c-408a-bb2f-e251ef15c5be": {
+			"id": "221ad34f-3e7c-408a-bb2f-e251ef15c5be",
+			"visible": true,
+			"name": "User",
+			"desc": "",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "5b0a4001-1e66-4974-86e4-5448c9f409cf",
+					"name": "_id",
+					"datatype": "ObjectId",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "3693e18c-c789-4826-ac48-e13584b07f97",
+					"name": "firstName",
+					"datatype": "String",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "cd9df5e9-b371-4665-b271-4d2a24d3a3d1",
+					"name": "lastName",
+					"datatype": "String",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "77ce4052-6547-439f-af8e-bda8d085841b",
+					"name": "email",
+					"datatype": "String",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "d2afd3ee-c195-4a79-9cc5-f5ec58bf801f",
+					"name": "password",
+					"datatype": "String",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				}
+			],
+			"relations": [
+				"2f7f0a82-731f-4ef3-b440-38f9ab17762b"
+			],
+			"lines": [],
+			"keys": [
+				{
+					"id": "7255484e-e48c-4a51-a80a-fc45f27b17c5",
+					"name": "Primary",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "74eee410-b48c-4a36-878e-4e541bf956f4",
+							"colid": "5b0a4001-1e66-4974-86e4-5448c9f409cf"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"others": ""
+		},
+		"8cdd94bd-ba3a-4a3c-b94e-96ee4a08d1cf": {
+			"id": "8cdd94bd-ba3a-4a3c-b94e-96ee4a08d1cf",
+			"visible": true,
+			"name": "Note",
+			"desc": "In this user will take notes",
+			"estimatedSize": "",
+			"cols": [
+				{
+					"id": "f8f147c3-5473-45f6-8f35-f384f2458eb5",
+					"name": "_id",
+					"datatype": "ObjectId",
+					"param": "",
+					"pk": true,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "37dfcd93-bd95-4626-94ff-dc149ddc7edc",
+					"name": "title",
+					"datatype": "String",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "b0d22cdc-781a-4447-bdeb-9cb65fe3efb4",
+					"name": "description",
+					"datatype": "String",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "7a432602-5649-4719-b067-cc4c1bfb9401",
+					"name": "image",
+					"datatype": "String",
+					"param": "",
+					"pk": false,
+					"nn": false,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "702b0451-55d2-4668-9181-676f40401c94",
+					"name": "timeStamps",
+					"datatype": "Number",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "33ffe31b-cf7b-4a62-a91b-4d7def61a19a",
+					"name": "user",
+					"datatype": "221ad34f-3e7c-408a-bb2f-e251ef15c5be",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": false,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				},
+				{
+					"id": "6f429f37-02cf-4e6a-9d0b-b9b85a135f00",
+					"name": "User",
+					"datatype": "ObjectId",
+					"param": "",
+					"pk": false,
+					"nn": true,
+					"list": false,
+					"fk": true,
+					"comment": "",
+					"data": "",
+					"options": "",
+					"estimatedSize": ""
+				}
+			],
+			"relations": [
+				"2f7f0a82-731f-4ef3-b440-38f9ab17762b"
+			],
+			"lines": [],
+			"keys": [
+				{
+					"id": "cb6d1e37-28ab-4362-91e6-657b30ecc47b",
+					"name": "Primary",
+					"isPk": true,
+					"cols": [
+						{
+							"id": "0a301192-e5dc-4349-8e10-39ef5f0e24e8",
+							"colid": "f8f147c3-5473-45f6-8f35-f384f2458eb5"
+						}
+					]
+				}
+			],
+			"indexes": [],
+			"embeddable": false,
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"others": ""
+		}
+	},
+	"relations": {
+		"2f7f0a82-731f-4ef3-b440-38f9ab17762b": {
+			"id": "2f7f0a82-731f-4ef3-b440-38f9ab17762b",
+			"name": "User_note",
+			"desc": "",
+			"type": "identifying",
+			"parent_key": "7255484e-e48c-4a51-a80a-fc45f27b17c5",
+			"parent": "221ad34f-3e7c-408a-bb2f-e251ef15c5be",
+			"child": "8cdd94bd-ba3a-4a3c-b94e-96ee4a08d1cf",
+			"c_mp": "true",
+			"c_mch": "true",
+			"c_p": "one",
+			"c_ch": "many",
+			"c_cp": "",
+			"c_cch": "",
+			"cols": [
+				{
+					"id": "91436660-138c-4745-9ed1-425c7307b5da",
+					"parentcol": "5b0a4001-1e66-4974-86e4-5448c9f409cf",
+					"childcol": "6f429f37-02cf-4e6a-9d0b-b9b85a135f00"
+				}
+			],
+			"generate": true,
+			"generateCustomCode": true,
+			"customCode": "",
+			"relationColor": "transparent"
+		}
+	},
+	"notes": {},
+	"lines": {},
+	"model": {
+		"name": "Note Taking App",
+		"id": "54aaa935-c54b-4950-a226-e07c34b1f87c",
+		"activeDiagram": "86b72795-0c69-4c8a-a663-1caea0542426",
+		"desc": "",
+		"path": "",
+		"type": "MONGOOSE",
+		"version": 1,
+		"parentTableInFkCols": true,
+		"caseConvention": "under",
+		"replaceSpace": "_",
+		"color": "transparent",
+		"sideSelections": true,
+		"isDirty": true,
+		"storedin": {
+			"major": 9,
+			"minor": 7,
+			"extra": 0
+		},
+		"laststoredin": {
+			"major": 9,
+			"minor": 7,
+			"extra": 0
+		},
+		"writeFileParam": false,
+		"authorName": "",
+		"companyDetails": "",
+		"companyUrl": "",
+		"def_coltopk": true,
+		"def_others": "",
+		"lastSaved": 1739369714598
+	},
+	"otherObjects": {},
+	"diagrams": {
+		"86b72795-0c69-4c8a-a663-1caea0542426": {
+			"name": "Main Diagram",
+			"description": "",
+			"id": "86b72795-0c69-4c8a-a663-1caea0542426",
+			"keysgraphics": true,
+			"linegraphics": "detailed",
+			"zoom": 1,
+			"background": "transparent",
+			"lineColor": "transparent",
+			"isOpen": true,
+			"main": true,
+			"diagramItems": {
+				"221ad34f-3e7c-408a-bb2f-e251ef15c5be": {
+					"referencedItemId": "221ad34f-3e7c-408a-bb2f-e251ef15c5be",
+					"x": 83,
+					"y": 49,
+					"gHeight": 133,
+					"gWidth": 209,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": true,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"collapsed": false
+				},
+				"8cdd94bd-ba3a-4a3c-b94e-96ee4a08d1cf": {
+					"referencedItemId": "8cdd94bd-ba3a-4a3c-b94e-96ee4a08d1cf",
+					"x": 86,
+					"y": 234,
+					"gHeight": 153,
+					"gWidth": 227,
+					"color": "#ffffff",
+					"background": "#03a9f4",
+					"resized": false,
+					"autoExpand": true,
+					"backgroundOpacity": "10",
+					"collapsed": false
+				}
+			},
+			"scroll": {
+				"x": 0,
+				"y": 0
+			},
+			"type": "erd",
+			"showHorizontal": true,
+			"showDescriptions": true,
+			"showIndicators": true,
+			"showProgress": true,
+			"lineWidth": "2",
+			"boxSize": "0",
+			"boxSpacing": "2",
+			"boxAlign": "center",
+			"showIndicatorCaptions": true,
+			"showEstimatedSize": false,
+			"showSchemaContainer": true,
+			"showEmbeddedInParents": true,
+			"showCardinalityCaptions": true,
+			"showRelationshipNames": false,
+			"showLineCaptions": false,
+			"showColumns": true,
+			"showColumnDataTypes": true,
+			"showSampleData": false,
+			"showTableIndexes": true,
+			"showTableDescriptions": false,
+			"showRelations": true,
+			"backgroundImage": "na",
+			"descriptionsColor": "transparent",
+			"embeddedSpacing": "2",
+			"showMainIcon": true,
+			"showLabels": true,
+			"showCustomizations": false,
+			"showExportDimensions": false
+		}
+	},
+	"diagramsOrder": [],
+	"order": [],
+	"collapsedTreeItems": [],
+	"reverseStats": {}
+}
