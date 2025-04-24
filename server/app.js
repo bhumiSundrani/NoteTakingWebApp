@@ -13,7 +13,7 @@ const PORT = process.env.PORT || 9000
 //using middlewares
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(cors({origin: "https://note-taking-web-app-self.vercel.app/", credentials: true}))
+app.use(cors({origin: "https://note-taking-web-app-self.vercel.app", credentials: true}))
 app.use(cookieParser())
 
 //connect to mongoDb
