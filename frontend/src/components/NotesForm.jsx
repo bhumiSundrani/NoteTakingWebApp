@@ -9,7 +9,8 @@ function NotesForm() {
     const {slug} = useParams()
     const [notes, setNotes] = useState(null)
     const [error, setError] = useState(null)
-    const { register, handleSubmit, formState: { errors }, control, watch, reset } = useForm({
+    const [isLoading, setIsLoading] = useState(true)
+    const { register, handleSubmit, formState: { errors }, control, watch, reset, setValue } = useForm({
         defaultValues: {
             title: "",
             description: "",
@@ -19,13 +20,20 @@ function NotesForm() {
 
     // Fetch note data when editing
     useEffect(() => {
-        if(!slug) return
+        if(!slug) {
+            setIsLoading(false)
+            return
+        }
         
         async function getNotes() {
             try {
                 const response = await axios.get(`https://notetakingwebapp.onrender.com/notes/get-notes/${slug}`, {withCredentials: true})
                 if(response.data?.notes) {
-                    setNotes(response.data.notes)
+                    const noteData = response.data.notes
+                    setNotes(noteData)
+                    // Set form values
+                    setValue('title', noteData.title || '')
+                    setValue('description', noteData.description || '')
                     setError(null)
                 }
             } catch (error) {
@@ -36,21 +44,12 @@ function NotesForm() {
                     setError("Network error occurred")
                     console.error("Error fetching notes: ", error.message)
                 }
+            } finally {
+                setIsLoading(false)
             }
         }
         getNotes()
-    }, [slug])
-
-    // Reset form with note data when available
-    useEffect(() => {
-        if (notes) {
-            reset({
-                title: notes.title || "",
-                description: notes.description || "",
-                image: null
-            });
-        }
-    }, [notes, reset]);
+    }, [slug, setValue])
 
     const imageFile = watch("image") 
     const [selectedImage, setSelectedImage] = useState(null)
@@ -159,6 +158,14 @@ function NotesForm() {
                 >
                     Go Back
                 </button>
+            </div>
+        )
+    }
+
+    if (isLoading) {
+        return (
+            <div className="max-w-3xl mx-auto shadow-lg rounded-2xl p-6 space-y-4">
+                <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">Loading...</h1>
             </div>
         )
     }
