@@ -19,14 +19,14 @@ function Header() {
       const res = await axios.post('https://notetakingwebapp.onrender.com/user/logout', {}, {withCredentials: true})
       dispatch(logout())
       navigate('/user/login')
-      console.log("Logout successfull: ", res.data)
+      console.log("Logout successful: ", res.data)
     } catch (error) {
       if (error.response) {
         console.error("Server Error:", error.response.data.error);
       } else {
         console.error("Request Failed:", error.message);
       }
-      }
+    }
   }
 
   return (
@@ -51,31 +51,33 @@ function Header() {
           </div>
 
           <button
-            className="md:hidden p-2 rounded-md hover:bg-gray-700 text-white transition-transform duration-300 "
+            className="md:hidden p-2 rounded-md hover:bg-gray-700 text-white transition-transform duration-300"
             onClick={() => setIsOpen(!isOpen)}
           >
             {isOpen ? <X size={28} className="rotate-180 transition-transform duration-300" /> : <Menu size={28} />}
           </button>
         </>
         : 
-           <Button type="button" text="Logout" bgColor="#edede9" textColor="black" className="px-1 py-[4px] sm:p-2 transition duration-300  hover:bg-[#dddbdbcf] " onClick={handleLogout}/>
+           <Button type="button" text="Logout" bgColor="#edede9" textColor="black" className="px-1 py-[4px] sm:p-2 transition duration-300 hover:bg-[#dddbdbcf]" onClick={handleLogout}/>
         }
       </div>
 
       {/* Mobile Menu Dropdown with Smooth Transition */}
       <div
         className={`md:hidden flex flex-col items-center bg-[#242323] text-white py-4 space-y-2 w-[50%] sm:w-[40%] px-2 absolute right-0 top-[53px] rounded-l-xl
-          transition-all duration-200 ease-in-out z-1 origin-top ${
+          transition-all duration-200 ease-in-out z-10 origin-top ${
             isOpen ? "scale-y-100 opacity-100 h-auto" : "scale-y-0 opacity-0 h-0"
-          } overflow-hidden`}
+          } overflow-hidden shadow-lg`}
       >
         <div className="w-full">
-          <Button type="button" text="Sign up" bgColor="#edede9" textColor="black" className="w-full py-1 transition duration-300  hover:bg-[#dddbdbcf]" onClick={() => {navigate('/user/signup')
-            setIsOpen(false)}
-          } />
+          <Button type="button" text="Sign up" bgColor="#edede9" textColor="black" className="w-full py-1 transition duration-300 hover:bg-[#dddbdbcf]" onClick={() => {
+            navigate('/user/signup')
+            setIsOpen(false)
+          }} />
         </div>
         <div className="w-full">
-          <Button type="button" text="Login" bgColor="#edede9" textColor="black" className="w-full py-1 transition duration-300  hover:bg-[#dddbdbcf]" onClick={() =>{ navigate('/user/login')
+          <Button type="button" text="Login" bgColor="#edede9" textColor="black" className="w-full py-1 transition duration-300 hover:bg-[#dddbdbcf]" onClick={() => {
+            navigate('/user/login')
             setIsOpen(false)
           }}/>
         </div>

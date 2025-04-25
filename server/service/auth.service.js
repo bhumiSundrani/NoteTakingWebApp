@@ -1,11 +1,17 @@
 const jwt = require('jsonwebtoken')
 require('dotenv').config()
+
+const TOKEN_EXPIRY = '7d'
 const secret = process.env.SECRET
 
+if (!secret) {
+    console.error('JWT secret is not configured')
+    process.exit(1)
+}
+
 const createToken = (user) => {
-    if(!user) {
-        console.log("User not provided")
-        return
+    if(!user || !user._id || !user.email) {
+        throw new Error('Invalid user data for token creation')
     }
 
     const payload = {
@@ -13,18 +19,27 @@ const createToken = (user) => {
         email: user.email
     }
 
-    return jwt.sign(payload, secret, {
-        expiresIn: "7d"
-    })
+    try {
+        return jwt.sign(payload, secret, {
+            expiresIn: TOKEN_EXPIRY
+        })
+    } catch (error) {
+        console.error('Token creation error:', error)
+        throw new Error('Failed to create authentication token')
+    }
 }
 
 const verifyToken = (token) => {
-    if(!token){
-        console.log("Token not provided")
-        return
+    if(!token) {
+        throw new Error('No token provided')
     }
 
-    return jwt.verify(token, secret)
+    try {
+        return jwt.verify(token, secret)
+    } catch (error) {
+        console.error('Token verification error:', error)
+        throw error
+    }
 }
 
 module.exports = {

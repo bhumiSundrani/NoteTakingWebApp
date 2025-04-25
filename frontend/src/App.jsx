@@ -8,19 +8,30 @@ import axios from "axios";
 function App() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  useEffect( () => {
-    if(!document.cookie) return
+  
+  useEffect(() => {
     const getUser = async () => {
       try {
-        const res = await axios.get('http://localhost:8000/user/get-current-user', {withCredentials: true})
-        if(!res) return navigate('/login')
-        if(res.data?.user) return dispatch(login(res.data.user))
+        const res = await axios.get('https://notetakingwebapp.onrender.com/user/get-current-user', {withCredentials: true})
+        if (res.data?.user) {
+          dispatch(login(res.data.user))
+        } else {
+          navigate('/user/login')
+        }
       } catch (error) {
-        console.log("Error fetching data: ", error)
+        console.error("Error fetching user data:", error)
+        navigate('/user/login')
       }
     }
-    getUser()  
-  }, [])
+
+    // Only attempt to get user if we have cookies
+    if (document.cookie) {
+      getUser()
+    } else {
+      navigate('/user/login')
+    }
+  }, [dispatch, navigate])
+
   return (
     <div className="min-h-screen bg-[#242323] flex flex-col">
       {/* Header stays on top */}

@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import {Provider} from 'react-redux'
 import { store } from './store/store.js'
-import { createBrowserRouter, RouterProvider } from 'react-router'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import {AddNotesPage, HomePage, LoginPage, SignupPage, EditNotesPage, NotesPage, RecentlyDeletedPage }from './pages'
 
 const router = createBrowserRouter([
@@ -57,9 +57,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}>
-      <App />
-      </RouterProvider>
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>,
 )
