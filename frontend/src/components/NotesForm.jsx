@@ -99,10 +99,10 @@ function NotesForm() {
         setUploadProgress(0)
         
         try {
-            if(notes) {
+            if(slug) {
                 // Update existing note
                 const response = await axios.patch(
-                    `https://notetakingwebapp.onrender.com/notes/edit-notes/${notes._id}`,
+                    `https://notetakingwebapp.onrender.com/notes/edit-notes/${slug}`,
                     formdata,
                     {
                         withCredentials: true,
@@ -223,11 +223,11 @@ function NotesForm() {
                         <button 
                             type="submit" 
                             className={`mt-4 py-[6px] sm:py-2 px-4 w-full sm:text-lg font-medium cursor-pointer duration-300 rounded-lg shadow-md transition-all ${
-                                isUploading ? "bg-gray-500 cursor-not-allowed" : (notes ? "bg-green-500" : "bg-blue-500") + " hover:brightness-90"
+                                isUploading ? "bg-gray-500 cursor-not-allowed" : (slug ? "bg-green-500" : "bg-blue-500") + " hover:brightness-90"
                             }`}
                             disabled={isUploading}
                         >
-                            <p className='text-white text-[15px] sm:text-base'>{notes ? "Update Note" : "Create Note"}</p>
+                            <p className='text-white text-[15px] sm:text-base'>{slug ? "Update Note" : "Create Note"}</p>
                         </button>
                     </div>
                 </form>                                                   
