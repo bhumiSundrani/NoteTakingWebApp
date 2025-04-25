@@ -10,7 +10,7 @@ function NotesForm() {
     const [notes, setNotes] = useState(null)
     const [error, setError] = useState(null)
     const [isLoading, setIsLoading] = useState(true)
-    const { register, handleSubmit, formState: { errors }, control, watch, reset, setValue } = useForm({
+    const { register, handleSubmit, formState: { errors }, control, watch, setValue } = useForm({
         defaultValues: {
             title: "",
             description: "",
